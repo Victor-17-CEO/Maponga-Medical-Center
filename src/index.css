@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Medical Center Design System - Professional Slate Theme */
+
+@layer base {
+  :root {
+    /* Dark theme with brand colors - permanent dark mode */
+    --background: 210 50% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 210 50% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 210 50% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 102 60% 46%;
+    --primary-foreground: 210 40% 98%;
+    --primary-hover: 102 60% 41%;
+
+    --secondary: 210 64% 26%;
+    --secondary-foreground: 210 40% 98%;
+    --secondary-hover: 210 64% 22%;
+
+    --muted: 210 24% 20%;
+    --muted-foreground: 210 18% 70%;
+
+    --accent: 102 60% 46%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 72% 48%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 24% 22%;
+    --input: 210 24% 22%;
+    --ring: 102 60% 46%;
+
+    --radius: 0.75rem;
+
+    /* Dark theme gradients and effects */
+    --gradient-hero: linear-gradient(135deg, hsl(210 50% 8%) 0%, hsl(210 50% 14%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(210 50% 12%) 0%, hsl(210 40% 16%) 100%);
+    --shadow-medical: 0 10px 40px -10px hsl(102 60% 46% / 0.18);
+    --shadow-card: 0 4px 20px -4px hsl(210 50% 4% / 0.45);
+    
+    /* Animation speeds */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
