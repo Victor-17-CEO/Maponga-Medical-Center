@@ -13,7 +13,9 @@ import {
   Activity,
   Syringe,
   FileText,
-  Pill
+  Pill,
+  BedDouble,
+  Microscope
 } from "lucide-react";
 
 const services = [
@@ -88,6 +90,24 @@ const services = [
     title: "Pharmacy Services",
     description: "On-site pharmacy services for convenient medication management and prescription fulfillment.",
     features: ["Prescription filling", "Medication counseling", "Drug interactions", "Refill reminders"]
+  },
+  {
+    icon: Baby,
+    title: "Maternity Services",
+    description: "Comprehensive antenatal, delivery, and postnatal care in a safe and supportive environment.",
+    features: ["Antenatal clinics", "Skilled delivery support", "Postnatal checkups", "Family planning & counseling"]
+  },
+  {
+    icon: BedDouble,
+    title: "Inpatient Admission",
+    description: "Comfortable inpatient wards with 24/7 nursing care and doctor rounds for patients requiring admission.",
+    features: ["General ward & private rooms", "24/7 nursing care", "Doctor reviews", "Nutritional support"]
+  },
+  {
+    icon: Microscope,
+    title: "Theatre / Surgical Services",
+    description: "Well-equipped theatre for elective and emergency procedures performed by experienced surgeons.",
+    features: ["Minor & major procedures", "Emergency surgeries", "Pre-op & post-op care", "Sterile environment standards"]
   }
 ];
 
@@ -166,7 +186,7 @@ const Services = () => {
             Emergency Care
           </h3>
           <p className="text-muted-foreground">
-            For medical emergencies, please call 911 or visit your nearest emergency room. 
+            For life-threatening emergencies, please call 464 or visit your nearest emergency room. 
             Our clinic provides urgent care during regular business hours.
           </p>
         </div>

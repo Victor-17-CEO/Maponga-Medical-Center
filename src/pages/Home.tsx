@@ -38,18 +38,18 @@ const services = [
 
 const testimonials = [
   {
-    name: "Mirriam",
-    text: "Excellent care and friendly staff. Dr. Smith took the time to listen to my concerns and provided thorough treatment.",
+    name: "Immaculate Mainje",
+    text: "Excellent quality care. The patient waiting time is not that long and service is exceptional.",
     rating: 5
   },
   {
-    name: "Isaac",
-    text: "The booking system is so convenient, and the facility is modern and clean. Highly recommend!",
+    name: "Bangawe Olivia",
+    text: "Firstly would like to say, thank you for improving the standards of your health services. The new complex is very clean and welcoming. The workers are good in terms of welcoming and treating patients with respect. Personally, i recommend that, the staff continue do the good work.",
     rating: 5
   },
   {
-    name: "Emily",
-    text: "Top notch services there,state of the art facility.there is this lady (mainini) is the reason why opted MedCenter as my health service provider.superb staff in your corridors.Keep going...May our good Lord continue to give you wisdom...Siyabonga",
+    name: "Onious Honye",
+    text: "Top notch services there,state of the art facility.there is this lady (mainini) is the reason why opted Maponga medical center as my health service provider.superb staff in your corridors.Keep going...May our good Lord continue to give you wisdom...Siyabonga",
     rating: 5
   }
 ];

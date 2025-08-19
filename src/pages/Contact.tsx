@@ -22,12 +22,13 @@ const Contact = () => {
     subject: "",
     message: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!formData.name || !formData.email || !formData.subject || !formData.message) {
@@ -39,17 +40,45 @@ const Contact = () => {
       return;
     }
 
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for contacting us. We'll get back to you within 24 hours.",
-    });
+    try {
+      setIsSubmitting(true);
 
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: ""
-    });
+      const response = await fetch("https://formsubmit.co/ajax/info@mapongamedcentre.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          _captcha: false,
+          _template: "table",
+        }),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for contacting us. We'll get back to you within 24 hours.",
+        });
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        throw new Error(result?.message || "Failed to send message");
+      }
+    } catch (error: any) {
+      toast({
+        title: "Could not send message",
+        description: error?.message || "Please try again or email us at info@mapongamedcentre.com",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -123,9 +152,9 @@ const Contact = () => {
                   />
                 </div>
 
-                <Button type="submit" variant="medical" size="lg" className="w-full">
+                <Button type="submit" variant="medical" size="lg" className="w-full" disabled={isSubmitting}>
                   <Send className="w-4 h-4 mr-2" />
-                  Send Message
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             </CardContent>
@@ -179,11 +208,9 @@ const Contact = () => {
                     <Mail className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-foreground mb-2">Email Addresses</h3>
+                    <h3 className="text-lg font-semibold text-foreground mb-2">Email</h3>
                     <div className="space-y-1 text-muted-foreground">
-                      <p>General: <a href="mailto:info@medcenter.com" className="text-primary hover:underline">info@mmc.com</a></p>
-                      <p>Appointments: <a href="mailto:appointments@medcenter.com" className="text-primary hover:underline">appointments@mmc.com</a></p>
-                      <p>Billing: <a href="mailto:billing@medcenter.com" className="text-primary hover:underline">billing@mmc.com</a></p>
+                      <p>General: <a href="mailto:info@mapongamedcentre.com" className="text-primary hover:underline">info@mapongamedcentre.com</a></p>
                     </div>
                   </div>
                 </div>
